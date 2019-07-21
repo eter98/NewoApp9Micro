@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="registroCompra">
+            <h2><span jhiTranslate="newoApp9MicroApp.registroCompra.detail.title">Registro Compra</span> {{registroCompra.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.consumoMarket">Consumo Market</span></dt>
+                <dd>
+                    <span>{{registroCompra.consumoMarket}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.miembro">Miembro</span></dt>
+                <dd>
+                    {{registroCompra.miembroLogin}}
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.facturacion">Facturacion</span></dt>
+                <dd>
+                    <div *ngIf="registroCompra.facturacionId">
+                        <a [routerLink]="['/facturacion', registroCompra.facturacionId, 'view']">{{registroCompra.facturacionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.reservas">Reservas</span></dt>
+                <dd>
+                    <div *ngIf="registroCompra.reservasId">
+                        <a [routerLink]="['/reservas', registroCompra.reservasId, 'view']">{{registroCompra.reservasId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.entradaInvitados">Entrada Invitados</span></dt>
+                <dd>
+                    <div *ngIf="registroCompra.entradaInvitadosId">
+                        <a [routerLink]="['/entrada-invitados', registroCompra.entradaInvitadosId, 'view']">{{registroCompra.entradaInvitadosId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.registroCompra.entradaMiembros">Entrada Miembros</span></dt>
+                <dd>
+                    <div *ngIf="registroCompra.entradaMiembrosId">
+                        <a [routerLink]="['/entrada-miembros', registroCompra.entradaMiembrosId, 'view']">{{registroCompra.entradaMiembrosId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/registro-compra', registroCompra.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

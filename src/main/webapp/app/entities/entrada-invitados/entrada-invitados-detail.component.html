@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="entradaInvitados">
+            <h2><span jhiTranslate="newoApp9MicroApp.entradaInvitados.detail.title">Entrada Invitados</span> {{entradaInvitados.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.registroFecha">Registro Fecha</span></dt>
+                <dd>
+                    <span>{{entradaInvitados.registroFecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.tipoEntrada">Tipo Entrada</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp9MicroApp.TipoEntradad.' + entradaInvitados.tipoEntrada}}">{{entradaInvitados.tipoEntrada}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.tipoIngreso">Tipo Ingreso</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'newoApp9MicroApp.TipoIngresod.' + entradaInvitados.tipoIngreso}}">{{entradaInvitados.tipoIngreso}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.tiempoMaximo">Tiempo Maximo</span></dt>
+                <dd>
+                    <span>{{entradaInvitados.tiempoMaximo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.espacio">Espacio</span></dt>
+                <dd>
+                    <div *ngIf="entradaInvitados.espacioId">
+                        <a [routerLink]="['/espacio-libre', entradaInvitados.espacioId, 'view']">{{entradaInvitados.espacioNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.espacioReserva">Espacio Reserva</span></dt>
+                <dd>
+                    <div *ngIf="entradaInvitados.espacioReservaId">
+                        <a [routerLink]="['/espacios-reserva', entradaInvitados.espacioReservaId, 'view']">{{entradaInvitados.espacioReservaNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.invitado">Invitado</span></dt>
+                <dd>
+                    <div *ngIf="entradaInvitados.invitadoId">
+                        <a [routerLink]="['/invitados', entradaInvitados.invitadoId, 'view']">{{entradaInvitados.invitadoIdentificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.entradaInvitados.miembro">Miembro</span></dt>
+                <dd>
+                    {{entradaInvitados.miembroLogin}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/entrada-invitados', entradaInvitados.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

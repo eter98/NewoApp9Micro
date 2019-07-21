@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empresa">
+            <h2><span jhiTranslate="newoApp9MicroApp.empresa.detail.title">Empresa</span> {{empresa.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.razonSocial">Razon Social</span></dt>
+                <dd>
+                    <span>{{empresa.razonSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.nit">Nit</span></dt>
+                <dd>
+                    <span>{{empresa.nit}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{empresa.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{empresa.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.correo">Correo</span></dt>
+                <dd>
+                    <span>{{empresa.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.celular">Celular</span></dt>
+                <dd>
+                    <span>{{empresa.celular}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.empresa.aliado">Aliado</span></dt>
+                <dd>
+                    <div *ngIf="empresa.aliadoId">
+                        <a [routerLink]="['/miembros', empresa.aliadoId, 'view']">{{empresa.aliadoAliado}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empresa', empresa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="margenNewoEventos">
+            <h2><span jhiTranslate="newoApp9MicroApp.margenNewoEventos.detail.title">Margen Newo Eventos</span> {{margenNewoEventos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="newoApp9MicroApp.margenNewoEventos.porcentajeMargen">Porcentaje Margen</span></dt>
+                <dd>
+                    <span>{{margenNewoEventos.porcentajeMargen}}</span>
+                </dd>
+                <dt><span jhiTranslate="newoApp9MicroApp.margenNewoEventos.evento">Evento</span></dt>
+                <dd>
+                    <div *ngIf="margenNewoEventos.eventoId">
+                        <a [routerLink]="['/evento', margenNewoEventos.eventoId, 'view']">{{margenNewoEventos.eventoNombreEvento}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/margen-newo-eventos', margenNewoEventos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
